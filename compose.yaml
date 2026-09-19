@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      context: .
+    container_name: co-de-ploy
+    ports:
+      - "5000:5000"
+    environment:
+      APP_VERSION: "0.1.0"
