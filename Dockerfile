@@ -8,6 +8,8 @@ RUN pip install -r requirements.txt
 
 COPY /app .
 
+LABEL org.opencontainers.image.source="https://github.com/Dubeyguy/clouddeploy"
+
 EXPOSE 5000
 
 CMD ["python", "app.py"]
