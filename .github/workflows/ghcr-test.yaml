@@ -1,0 +1,24 @@
+name: GHCR Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  ghcr-test:
+    runs-on: self-hosted
+
+    steps:
+      - name: Log in to GHCR
+        run: |
+          echo "${{ secrets.GHCR_PAT }}" | \
+            docker login ghcr.io \
+            -u "${{ github.actor }}" \
+            --password-stdin
+
+      - name: Pull Co-de-ploy image
+        run: |
+          docker pull ghcr.io/${{ github.repository }}:main
+
+      - name: Show image
+        run: |
+          docker images
