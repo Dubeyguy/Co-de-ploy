@@ -35,6 +35,7 @@ jobs:
           python -m pytest -v
 
   build-and-push:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: test
     runs-on: ubuntu-latest
 
