@@ -1,0 +1,9 @@
+services:
+  app:
+    image: ghcr.io/Dubeyguy/Co-de-ploy:latest
+    container_name: co-de-ploy
+    ports:
+      - "5000:5000"
+    environment:
+      APP_VERSION: "production"
+    restart: unless-stopped
